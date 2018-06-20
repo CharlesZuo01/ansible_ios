@@ -1,5 +1,7 @@
 [hosts]
-switch1 hsrp_priority=90
-switch2 hsrp_priority=90
-switch3 hsrp_priority=110
-switch4 hsrp_priority=110
+switch1 hsrp_priority=110 mgmt_vlan=10 last_octet=1
+switch2 hsrp_priority=100 mgmt_vlan=10 last_octet=2
+switch3 hsrp_priority=110 mgmt_vlan=11 last_octet=1 
+switch4 hsrp_priority=100 mgmt_vlan=11 last_octet=1 
+switch5 hsrp_priority=110 mgmt_vlan=12 last_octet=1 
+switch6 hsrp_priority=100 mgmt_vlan=12 last_octet=2
