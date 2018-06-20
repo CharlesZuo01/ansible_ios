@@ -1,6 +1,6 @@
 ---
 
-- name:  Push IOS Config
+- name:  Push nxos config
   hosts: hosts
   connection: local
   gather_facts: no
@@ -10,9 +10,15 @@
       username: admin
       password: password
   tasks:
-    - ios_config:
+    - nxos_config:
         provider: "{{ creds }}"
         commands: 
-                -  int g1/0/1
-                -  description Ansible
+                - interface vlan {{ hostvars[inventory_hostname].mgmt_vlan}}
+                - ip address 10.0.{{ hostvars[inventory_hostname].mgmt_vlan}}.{{ hostvars[inventory_hostname].last_octet}
+                - hsrp {{ hostvars[inventory_hostname].mgmt_vlan}}
+                - preempt
+                - priority {{ hostvars[inventory_hostname].priority}}
+                - ip 10.0.{{ hostvars[inventory_hostname].mgmt_vlan}}.1
         save_when: always
+
+
