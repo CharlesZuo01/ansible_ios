@@ -1,0 +1,5 @@
+[hosts]
+switch1 hsrp_priority=90
+switch2 hsrp_priority=90
+switch3 hsrp_priority=110
+switch4 hsrp_priority=110
